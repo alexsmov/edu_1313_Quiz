@@ -116,3 +116,4 @@ public class MainActivity extends AppCompatActivity {
         Log.i("SYSTEM INFO: ", "вызван метод onDestroy()");
     }
 }
+
