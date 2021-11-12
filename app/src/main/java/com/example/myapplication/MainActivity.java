@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i("SYSTEM INFO: ", "вызван метод onCreate()");
+        if (savedInstanceState != null)
+        questionIndex = savedInstanceState.getInt("questionIndex",0);
         setContentView(R.layout.activity_main);
         yesBtn = findViewById(R.id.yesBtn);
         noBtn = findViewById(R.id.noBtn);
@@ -81,6 +83,11 @@ public class MainActivity extends AppCompatActivity {
 
         questionIndex = (questionIndex+1)%questions.length;
         textView.setText(questions[questionIndex].getQuestionText());
+    }
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("questionIndex",questionIndex);
     }
 
     @Override
